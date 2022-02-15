@@ -10,14 +10,16 @@ nlp = spacy.load('en_core_web_sm')
 
 
 def scrape_paragraph(url: Text) -> Text:
-    html = urlopen(url)
-    soup = BeautifulSoup(html, 'html.parser')
-    elements = soup.find_all("p")
-
-    passage = ""
-    for e in elements:
-        passage += e.text
-    return passage
+    if not url.startswith("https://"):
+        raise ValueError('url does not starts with https://')
+    else:
+        http_response = urlopen(url)
+        soup = BeautifulSoup(http_response, 'html.parser')
+        elements = soup.find_all("p")
+        passage = ""
+        for e in elements:
+            passage += e.text
+        return passage
 
 
 def count_word(passage: Text) -> Dict[Text, int]:
