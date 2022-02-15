@@ -4,8 +4,8 @@ from typing import Text
 from typing import Dict
 import json
 
-from starlette.responses import Response
 from pydantic import BaseModel
+from starlette.responses import Response
 
 
 class PrettyJSONResponse(Response):

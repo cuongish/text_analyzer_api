@@ -1,10 +1,12 @@
-import spacy
-from bs4 import BeautifulSoup
-from urllib.request import urlopen
-from collections import Counter
-from typing import Text
-from typing import List
 from typing import Dict
+from typing import List
+from typing import Text
+
+from bs4 import BeautifulSoup
+from collections import Counter
+from urllib.request import urlopen
+import spacy
+
 
 nlp = spacy.load('en_core_web_sm')
 

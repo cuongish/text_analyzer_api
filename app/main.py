@@ -1,10 +1,9 @@
 from fastapi import FastAPI, Header, HTTPException
+from pydantic import validate_arguments
 
 from app.classes import PrettyJSONResponse
 from app.classes import InputJSON
 from app.classes import OutputJSON
-from pydantic import validate_arguments
-
 from app.helper import scrape_paragraph
 from app.helper import count_word
 from app.helper import collect_names
