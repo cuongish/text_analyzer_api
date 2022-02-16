@@ -19,29 +19,30 @@ def scrape_paragraph(url: Text) -> Text:
         raise ValueError('url does not starts with https://')
     else:
         http_response = urlopen(url)
-        try:
-            soup = BeautifulSoup(http_response, 'html.parser')
-            elements = soup.find_all("p")
-            passage: Text = ""
-            for e in elements:
-                passage += e.text
-            return passage
-        except not http_response.status == 200:
-            raise AssertionError(f"Expected HTTP code 200, but got {http_response.status}")
+        soup = BeautifulSoup(http_response, 'html.parser')
+        elements = soup.find_all("p")
+        passage: Text = ""
+        for e in elements:
+            passage += e.text
+        return passage
 
 
 def count_word(passage: Text) -> Dict[Text, int]:
+    if passage == "":
+        raise ValueError("Input passage for word counter is empty")
+
     counter = Counter(passage.lower().split())
 
     return counter
 
 
 def collect_names(passage: Text) -> List[Text]:
+    if passage == "":
+        raise ValueError("Input passage for word counter is empty")
     doc: Union[Doc] = nlp(passage)
     names = []
 
     for ent in doc.ents:
         if ent.label_ == "PERSON":
             names.append(ent.text)
-
     return names
