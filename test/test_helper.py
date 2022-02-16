@@ -9,7 +9,7 @@ from app.helper import count_word
 from app.helper import scrape_paragraph
 
 
-class TextAnalyzerHelperTestCase(unittest.TestCase):
+class TestMain(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
