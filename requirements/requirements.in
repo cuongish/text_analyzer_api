@@ -1,4 +1,5 @@
 bs4
 fastapi
 spacy
+typing
 uvicorn
