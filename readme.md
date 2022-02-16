@@ -60,4 +60,4 @@ the passage first to filter out the special character via `tag_`
 
 - Including and installing`spacy`.`en_core_web_sm` via requirements.txt instead of via the Dockerfile
 
-- Improve tests with more negative test case e.g: validating json response.
+- Improve tests with more extensive test cases e.g: validating json response.
