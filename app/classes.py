@@ -22,7 +22,7 @@ class PrettyJSONResponse(Response):
 
 
 class InputJSON(BaseModel):
-    url: str
+    url: Text
 
 
 class OutputJSON(PrettyJSONResponse):
