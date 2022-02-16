@@ -1,4 +1,6 @@
-from fastapi import FastAPI, Header, HTTPException
+# coding: utf-8
+
+from fastapi import FastAPI
 from pydantic import validate_arguments
 
 from app.classes import PrettyJSONResponse
@@ -10,11 +12,10 @@ from app.helper import collect_names
 
 app = FastAPI()
 url = "https://en.wikipedia.org/wiki/Space_physics"
-fake_secret_token = "coneofsilence"
 
 
 @app.get("/", response_class=PrettyJSONResponse)
-async def read_root():
+async def read_space_physics():
     passage = scrape_paragraph(url=url)
 
     word_counts = count_word(passage=passage)
@@ -26,9 +27,6 @@ async def read_root():
 @app.put("/analyze", response_class=OutputJSON)
 @validate_arguments
 def text_analyze(input_json: InputJSON):
-    if not input_json.url.startswith("https://"):
-        raise HTTPException(status_code=404, detail="URL does not start with https//")
-
     passage = scrape_paragraph(url=input_json.url)
 
     word_counts = count_word(passage=passage)
