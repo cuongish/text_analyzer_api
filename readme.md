@@ -1,6 +1,6 @@
 ## Web page analyzer service
 
-`wiki_api` is a simple API which analyze the text of a given website URL, and returns a list of word frequencies 
+`text_analyzer_api` is a simple API which analyze the text of a given website URL, and returns a list of word frequencies 
 and a list of person names found in the page.
 
 ### Virtual environment
@@ -37,13 +37,13 @@ source venv/bin/activate
 
 
 #### Or via Dockerfile
-- Build docker image of `wiki_api`
+- Build docker image of `text_analyzer_api`
   ```bash
-  docker build -t wiki_api_image .
+  docker build -t text_analyzer_api_image .
   ```
-- Start the Docker Container based on the image of `wiki_api`
+- Start the Docker Container based on the image of `text_analyzer_api`
   ```bash
-  docker run -d --name wiki_api_container -p 80:80 wiki_api_image
+  docker run -d --name text_analyzer_api_container -p 80:80 text_analyzer_api_image
   ```
 - Now you should be able to check it in your Docker container's URL, for example: http://0.0.0.0/, 
 http://192.168.99.100/text_analyzer or http://127.0.0.1/docs (or equivalent, using your Docker host).
