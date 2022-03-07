@@ -35,7 +35,7 @@ class TestMain(unittest.TestCase):
         response = client.get("/")
         self.assertEqual(len(response.json()), 2)
 
-    def test_load__returns_422_if_posts_wrong_cart_value_data_type(self):
+    def test_load__returns_422_if_putting_wrong_data_type(self):
         response = client.put("/analyze",
                               json=self.edge_case)
         self.assertEqual(response.status_code, 422)
